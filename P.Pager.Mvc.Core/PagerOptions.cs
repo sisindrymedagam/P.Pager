@@ -8,8 +8,8 @@ namespace P.Pager.Mvc.Core
     {
         public PagerOptions()
         {
-            PagerType = PagerTypeEnum.Simple;
-            MaximumPageNumbersToDisplay = 10;
+            PagerType = PagerTypeEnum.Minimal;
+            MaximumPageNumbersToDisplay = 5;
             DisplayEllipsesWhenNotShowingAllPageNumbers = true;
             EllipsesFormat = "&#8230;";
             LinkToFirstPageFormat = "<<";
@@ -21,6 +21,10 @@ namespace P.Pager.Mvc.Core
             LiElementClass = "page-item";
             PageClass = "page-link";
             ActiveLiElementClass = "active";
+            DisplayPageCountAndCurrentPage = false;
+            PageCountAndCurrentPageFormat = "Page {0} of {1}.";
+            DisplayEntriesText = false;
+            EntriesTextFormat = "Showing {0} to {1} of {2} entries.";
         }
 
         /// <summary>
@@ -64,29 +68,61 @@ namespace P.Pager.Mvc.Core
         public string LinkToLastPageFormat { get; }
 
         /// <summary>
-        /// Css class to append to <div> element in the paging content.
+        /// Css class to append to &lt;div&gt; element in the paging content, by default it is set to container.
         /// </summary>
         public string ContainerDivClass { get; }
 
         /// <summary>
-        /// Css class to append to <ul> element in the paging content.
+        /// Css class to append to &lt;ul&gt; element in the paging content, by default it is set to pagination.
         /// </summary>
         public string UlElementClass { get; }
 
         /// <summary>
-        /// Css class to append to <li> element in the paging content.
+        /// Css class to append to &lt;li&gt; element in the paging content, by default it is set to page-item.
         /// </summary>
         public string LiElementClass { get; }
 
         /// <summary>
-        /// Css class to append to <a>/<span> element in the paging content.
+        /// Css class to append to &lt;a&gt;/&lt;span&gt; element in the paging content, by default it is set to page-link.
         /// </summary>
         public string PageClass { get; }
 
         /// <summary>
-        /// Css class to append to <li> element if active in the paging content.
+        /// Css class to append to &lt;li&gt; element if active in the paging content, by default it is set to active.
         /// </summary>
         public string ActiveLiElementClass { get; }
+
+        /// <summary>
+        /// Displaying current page number and total number of pages in pager, by default it is set to false.
+        /// </summary>
+        /// <example>
+        /// Page 10 of 20.
+        /// </example>
+        public bool DisplayPageCountAndCurrentPage { get; }
+
+        /// <summary>
+        /// Text format will display if DisplayPageCountAndCurrentPage is true. Use {0} to refer the current page and {0} to refer total number of pages, by default it is set to Page {0} of {1}.
+        /// </summary>
+        /// <example>
+        /// Page 10 of 20.
+        /// </example>
+        public string PageCountAndCurrentPageFormat { get; }
+
+        /// <summary>
+        /// Displaying start item, last item and total entries in pager, by default it is set to false.
+        /// </summary>
+        /// <example>
+        /// Showing 1 to 10 of 30 entries.
+        /// </example>
+        public bool DisplayEntriesText { get; }
+
+        /// <summary>
+        /// Text format will display if DisplayEntriesText is true. {0} refers first entry on page, {1} refers last item on page and {2} refers total number of entries, by default it is set to Showing {0} to {1} of {2} entries.
+        /// </summary>
+        /// <example>
+        /// Showing 1 to 10 of 30 entries.
+        /// </example>
+        public string EntriesTextFormat { get; }
 
         /// <summary>
         /// In which style that page was show, by default it is set to Simple.
@@ -96,12 +132,12 @@ namespace P.Pager.Mvc.Core
             /// <summary>
             /// Simple Page means just shows previous and next page.
             /// </summary>
-            Simple,
+            Minimal,
 
             /// <summary>
             /// Minimal page means it shows 12345... pages with next, previous, last page and first page.
             /// </summary>
-            Minimal
+            Maximal
         }
     }
 }

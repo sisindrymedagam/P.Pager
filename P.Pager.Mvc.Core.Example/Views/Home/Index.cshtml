@@ -48,5 +48,6 @@
         }
     </tbody>
 
-    @Html.Pager((IPager)Model, page => Url.Action("Index", new { page }))
 </table>
+
+@Html.Pager((IPager)Model, page => Url.Action("Index", new { page }))
