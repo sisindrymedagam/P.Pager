@@ -3,6 +3,7 @@
   <PropertyGroup>
     <TargetFrameworks>net451;net452;net461</TargetFrameworks>
     <GeneratePackageOnBuild>True</GeneratePackageOnBuild>
+    <Title>P.Pager.Mvc</Title>
     <Company>PuffinWeb</Company>
     <Authors>Copyright Sisindry Medagam, PuffinWeb © 2019</Authors>
     <Description>Lightweight package for easily paging through any IEnumerable/IQueryable in .NET Mvc Web Application.</Description>

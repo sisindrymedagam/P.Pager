@@ -3,6 +3,7 @@
   <PropertyGroup>
     <TargetFramework>netcoreapp2.0</TargetFramework>
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+    <Title>P.Pager.Mvc.Core</Title>
     <Company>PuffinWeb</Company>
     <Authors>Copyright Sisindry Medagam, PuffinWeb © 2019</Authors>
     <Description>Lightweight package for easily paging through any IEnumerable/IQueryable in .NET Core Mvc Web Application.</Description>
