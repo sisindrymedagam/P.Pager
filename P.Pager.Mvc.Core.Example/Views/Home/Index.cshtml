@@ -50,4 +50,4 @@
 
 </table>
 
-@Html.Pager((IPager)Model, page => Url.Action("Index", new { page }))
+@Html.Pager((IPager)Model, page => Url.Action("Index", new { page }), PagerOptions)

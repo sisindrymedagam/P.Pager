@@ -17,7 +17,7 @@ namespace P.Pager.Mvc.Core
             return Pager(html, pager, generatePageUrl, new PagerOptions());
         }
 
-        private static HtmlString Pager(this IHtmlHelper html, IPager pager, Func<int, string> generatePageUrl, PagerOptions pagerOptions)
+        public static HtmlString Pager(this IHtmlHelper html, IPager pager, Func<int, string> generatePageUrl, PagerOptions pagerOptions)
         {
             if (pagerOptions.PagerType == PagerTypeEnum.Minimal)
             {
@@ -38,7 +38,7 @@ namespace P.Pager.Mvc.Core
                 listItemLinks.Add(PageCountAndCurrentPage(pager, pagerOptions));
 
             //if (pagerOptions.DisplayEntriesText)
-                listItemLinks.Add(DisplayEntriesText(pager, pagerOptions));
+            listItemLinks.Add(DisplayEntriesText(pager, pagerOptions));
 
             listItemLinks.Add(Next(pager, generatePageUrl, pagerOptions));
 
