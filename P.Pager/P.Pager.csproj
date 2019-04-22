@@ -1,0 +1,31 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFrameworks>netstandard1.1;netstandard2.0;net45;net461</TargetFrameworks>
+    <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+    <Title>P.Pager</Title>
+    <Company>PuffinWeb</Company>
+    <Authors>Copyright Sisindry Medagam, PuffinWeb © 2019</Authors>
+    <Description>Lightweight package for easily paging through any List/IEnumerable/IQueryable in .NET and .NET Core.</Description>
+    <PackageLicenseExpression>MIT</PackageLicenseExpression>
+    <PackageIconUrl>https://raw.githubusercontent.com/puffinweb/P.Pager/master/icon.png</PackageIconUrl>
+    <PackageProjectUrl>https://github.com/puffinweb/P.Pager/</PackageProjectUrl>
+    <RepositoryUrl>https://github.com/puffinweb/P.Pager.git</RepositoryUrl>
+    <RepositoryType>git</RepositoryType>
+    <PackageTags>Paged list, paging in .net core, asp.net pagedlist, paging in .net, paging in mvc</PackageTags>
+    <NeutralLanguage />
+    <SignAssembly>true</SignAssembly>
+    <PackageRequireLicenseAcceptance>false</PackageRequireLicenseAcceptance>
+    <Version>1.2</Version>
+    <AssemblyVersion>1.2.0.0</AssemblyVersion>
+    <FileVersion>1.2.0.0</FileVersion>
+    <Copyright>Copyright Sisindry Medagam, PuffinWeb © 2019</Copyright>
+    <AssemblyOriginatorKeyFile>p.pager.pfx</AssemblyOriginatorKeyFile>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="System.Linq.Expressions" Version="4.3.0" />
+    <PackageReference Include="System.Linq.Queryable" Version="4.3.0" />
+  </ItemGroup>
+
+</Project>
