@@ -24,8 +24,6 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "img", "img", "{FC46E49F-EA8
 		icon.png = icon.png
 	EndProjectSection
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "P.Pager.Mvc.Example", "P.Pager.Mvc.Example\P.Pager.Mvc.Example.csproj", "{C5976976-1DAA-4CA5-99A1-49A7A881F00F}"
-EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -52,10 +50,6 @@ Global
 		{74EED4CA-8D72-447D-B568-AC8113805B88}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{74EED4CA-8D72-447D-B568-AC8113805B88}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{74EED4CA-8D72-447D-B568-AC8113805B88}.Release|Any CPU.Build.0 = Release|Any CPU
-		{C5976976-1DAA-4CA5-99A1-49A7A881F00F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{C5976976-1DAA-4CA5-99A1-49A7A881F00F}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{C5976976-1DAA-4CA5-99A1-49A7A881F00F}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{C5976976-1DAA-4CA5-99A1-49A7A881F00F}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -66,7 +60,6 @@ Global
 		{739FFC90-E4F7-4883-B258-CB34B9682ACD} = {39DD939F-ACC3-4954-8089-8273C628AFE9}
 		{CAC656FB-D634-484B-9302-59A8E81DF09A} = {D8E60079-635C-44AF-A964-D24A1EA007F1}
 		{74EED4CA-8D72-447D-B568-AC8113805B88} = {39DD939F-ACC3-4954-8089-8273C628AFE9}
-		{C5976976-1DAA-4CA5-99A1-49A7A881F00F} = {D8E60079-635C-44AF-A964-D24A1EA007F1}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {A81E0661-748F-4607-BC7A-846359D5902F}
