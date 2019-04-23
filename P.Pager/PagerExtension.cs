@@ -34,8 +34,8 @@ namespace P.Pager
         /// </summary>
         /// <typeparam name="T"></typeparam>
         /// <param name="allItems">Parent that is divided in to children.</param>
-        /// <param name="pageIndex">Index of child set within the parent list.</param>
-        /// <param name="pageSize">Size of individual child.</param>
+        /// <param name="pageIndex">Index of child set within the parent list. By default 1.</param>
+        /// <param name="pageSize">Size of individual child. By default 10.</param>
         /// <returns>Child set that is divided from parent list.</returns>
         public static IPager<T> ToPagedList<T>(this IEnumerable<T> allItems, int pageIndex = 1, int pageSize = 10)
         {
@@ -47,8 +47,8 @@ namespace P.Pager
         /// </summary>
         /// <typeparam name="T"></typeparam>
         /// <param name="allItems">Parent that is divided in to children.</param>
-        /// <param name="pageIndex">Index of child set within the parent list.</param>
-        /// <param name="pageSize">Size of individual child.</param>
+        /// <param name="pageIndex">Index of child set within the parent list. By default 1.</param>
+        /// <param name="pageSize">Size of individual child. By default 10.</param>
         /// <returns>Child set that is divided from parent list.</returns>
         public static IPager<T> ToPagedList<T>(this IQueryable<T> allItems, int pageIndex = 1, int pageSize = 10)
         {

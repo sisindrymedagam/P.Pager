@@ -12,11 +12,26 @@ namespace P.Pager.Mvc.Core
 {
     public static class HtmlHelper
     {
+        /// <summary>
+        /// Displays a configurable paging control for instances of Pager.
+        /// </summary>
+        /// <param name="html">This method is meant to hook off HtmlHelper as an extension method.</param>
+        /// <param name="pager">The Pager to use as the data source.</param>
+        /// <param name="generatePageUrl">A function that takes the page number of the desired page and returns a URL-string that will load that page.</param>
+        /// <returns>Outputs the pagination control HTML.</returns>
         public static HtmlString Pager(this IHtmlHelper html, IPager pager, Func<int, string> generatePageUrl)
         {
             return Pager(html, pager, generatePageUrl, new PagerOptions());
         }
 
+        /// <summary>
+        /// Displays a configurable paging control for instances of Pager.
+        /// </summary>
+        /// <param name="html">This method is meant to hook off HtmlHelper as an extension method.</param>
+        /// <param name="pager">The Pager to use as the data source.</param>
+        /// <param name="generatePageUrl">A function that takes the page number of the desired page and returns a URL-string that will load that page.</param>
+        /// <param name="pagerOptions">Formatting options.</param>
+        /// <returns>Outputs the pagination control HTML.</returns>
         public static HtmlString Pager(this IHtmlHelper html, IPager pager, Func<int, string> generatePageUrl, PagerOptions pagerOptions)
         {
             return PageBuilder(html, pager, generatePageUrl, pagerOptions);
