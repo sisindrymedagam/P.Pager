@@ -7,6 +7,14 @@ namespace P.Pager
 {
     public static class PagerExtension
     {
+        /// <summary>
+        /// Represents a child set of a collection of objects that can be individually accessed by index and containing metadata about the parent collection of objects.
+        /// </summary>
+        /// <typeparam name="T"></typeparam>
+        /// <param name="allItems">Parent that is divided in to children.</param>
+        /// <param name="pageIndex">Index of child set within the parent list.</param>
+        /// <param name="pageSize">Size of individual child.</param>
+        /// <returns>Child set that is divided from parent list.</returns>
         public static IPager<T> AsPagedList<T>(this IQueryable<T> allItems, int pageIndex, int pageSize)
         {
             if (pageIndex < 1)
@@ -21,11 +29,27 @@ namespace P.Pager
             return new Pager<T>(pageOfItems, pageIndex, pageSize, totalItemCount);
         }
 
+        /// <summary>
+        /// Represents a child set of a collection of objects that can be individually accessed by index and containing metadata about the parent collection of objects.
+        /// </summary>
+        /// <typeparam name="T"></typeparam>
+        /// <param name="allItems">Parent that is divided in to children.</param>
+        /// <param name="pageIndex">Index of child set within the parent list.</param>
+        /// <param name="pageSize">Size of individual child.</param>
+        /// <returns>Child set that is divided from parent list.</returns>
         public static IPager<T> ToPagedList<T>(this IEnumerable<T> allItems, int pageIndex = 1, int pageSize = 10)
         {
             return allItems.AsQueryable().AsPagedList(pageIndex, pageSize);
         }
 
+        /// <summary>
+        /// Represents a child set of a collection of objects that can be individually accessed by index and containing metadata about the parent collection of objects.
+        /// </summary>
+        /// <typeparam name="T"></typeparam>
+        /// <param name="allItems">Parent that is divided in to children.</param>
+        /// <param name="pageIndex">Index of child set within the parent list.</param>
+        /// <param name="pageSize">Size of individual child.</param>
+        /// <returns>Child set that is divided from parent list.</returns>
         public static IPager<T> ToPagedList<T>(this IQueryable<T> allItems, int pageIndex = 1, int pageSize = 10)
         {
             return allItems.AsPagedList(pageIndex, pageSize);

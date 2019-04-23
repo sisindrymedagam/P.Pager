@@ -121,7 +121,7 @@ namespace P.Pager.Mvc.Core
         public bool HasPagerText { get; set; }
 
         /// <summary>
-        /// Text format will display if DisplayPageCountAndCurrentPage is true. Use {0} to refer the current page and {0} to refer total number of pages, by default it is set to Page {0} of {1}.
+        /// Text format will display if HasPagerText is true. Use {0} to refer the current page and {0} to refer total number of pages, by default it is set to Page {0} of {1}.
         /// </summary>
         /// <example>
         /// Page 10 of 20.
@@ -137,7 +137,7 @@ namespace P.Pager.Mvc.Core
         public bool HasEntriesText { get; set; }
 
         /// <summary>
-        /// Text format will display if DisplayEntriesText is true. {0} refers first entry on page, {1} refers last item on page and {2} refers total number of entries, by default it is set to Showing {0} to {1} of {2} entries.
+        /// Text format will display if HasEntriesText is true. {0} refers first entry on page, {1} refers last item on page and {2} refers total number of entries, by default it is set to Showing {0} to {1} of {2} entries.
         /// </summary>
         /// <example>
         /// Showing 1 to 10 of 30 entries.
