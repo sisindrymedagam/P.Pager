@@ -6,7 +6,6 @@ using System.IO;
 using System.Linq;
 using System.Text;
 using System.Text.Encodings.Web;
-using static P.Pager.Mvc.Core.PagerOptions;
 
 namespace P.Pager.Mvc.Core
 {

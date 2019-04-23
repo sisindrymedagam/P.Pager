@@ -21,6 +21,7 @@
     <FileVersion>1.2.0.0</FileVersion>
     <Copyright>Copyright Sisindry Medagam, PuffinWeb © 2019</Copyright>
     <AssemblyOriginatorKeyFile>p_pager_mvc_core.pfx</AssemblyOriginatorKeyFile>
+    <PackageReleaseNotes>Initial Release of Pagination mechanism for .Net Core MVC Web Applications.</PackageReleaseNotes>
   </PropertyGroup>
 
   <ItemGroup>
