@@ -8,9 +8,6 @@
 
 <h2>Index</h2>
 
-<p>
-    <a asp-action="Create">Create New</a>
-</p>
 <table class="table">
     <thead>
         <tr>
@@ -50,4 +47,4 @@
 
 </table>
 
-@Html.Pager((IPager)Model, page => Url.Action("Index", new { page }), PagerOptions)
+@Html.Pager((IPager)Model, page => Url.Action("Index", new { page }), new PagerOptions { DisplayPageCountAndCurrentPage = true, DisplayEntriesText = true })

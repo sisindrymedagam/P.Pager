@@ -37,8 +37,8 @@ namespace P.Pager.Mvc.Core
             if (pagerOptions.DisplayPageCountAndCurrentPage)
                 listItemLinks.Add(PageCountAndCurrentPage(pager, pagerOptions));
 
-            //if (pagerOptions.DisplayEntriesText)
-            listItemLinks.Add(DisplayEntriesText(pager, pagerOptions));
+            if (pagerOptions.DisplayEntriesText)
+                listItemLinks.Add(DisplayEntriesText(pager, pagerOptions));
 
             listItemLinks.Add(Next(pager, generatePageUrl, pagerOptions));
 
