@@ -19,120 +19,171 @@ namespace P.Pager.Mvc.Core
 
         public static HtmlString Pager(this IHtmlHelper html, IPager pager, Func<int, string> generatePageUrl, PagerOptions pagerOptions)
         {
-            if (pagerOptions.PagerType == PagerTypeEnum.Minimal)
-            {
-                return MinimalPager(html, pager, generatePageUrl, pagerOptions);
-            }
-            else
-            {
-                return MaximalPager(html, pager, generatePageUrl, pagerOptions);
-            }
+            return PageBuilder(html, pager, generatePageUrl, pagerOptions);
         }
 
-        private static HtmlString MinimalPager(IHtmlHelper html, IPager pager, Func<int, string> generatePageUrl, PagerOptions pagerOptions)
+        private static HtmlString PageBuilder(IHtmlHelper html, IPager pager, Func<int, string> generatePageUrl, PagerOptions pagerOptions)
         {
+            var firstPageToDisplay = 1;
+            var lastPageToDisplay = pager.TotalPageCount;
+            var pageNumbersToDisplay = lastPageToDisplay;
+
+            if (pagerOptions.PagesToDisplay.HasValue && pager.TotalPageCount > pagerOptions.PagesToDisplay)
+            {
+                var maxPageNumbersToDisplay = pagerOptions.PagesToDisplay.Value;
+                firstPageToDisplay = pager.CurrentPageIndex - maxPageNumbersToDisplay / 2;
+                if (firstPageToDisplay < 1)
+                    firstPageToDisplay = 1;
+                pageNumbersToDisplay = maxPageNumbersToDisplay;
+                lastPageToDisplay = firstPageToDisplay + pageNumbersToDisplay - 1;
+                if (lastPageToDisplay > pager.TotalPageCount)
+                    firstPageToDisplay = pager.TotalPageCount - maxPageNumbersToDisplay + 1;
+            }
+
             var listItemLinks = new List<TagBuilder>();
+
+            listItemLinks.Add(First(pager, generatePageUrl, pagerOptions));
+
             listItemLinks.Add(Previous(pager, generatePageUrl, pagerOptions));
 
-            if (pagerOptions.DisplayPageCountAndCurrentPage)
+            if (pagerOptions.HasPagerText)
                 listItemLinks.Add(PageCountAndCurrentPage(pager, pagerOptions));
 
-            if (pagerOptions.DisplayEntriesText)
+            if (pagerOptions.HasEntriesText)
                 listItemLinks.Add(DisplayEntriesText(pager, pagerOptions));
 
+            if (pagerOptions.HasIndividualPages)
+            {
+                if (pagerOptions.HasEllipses && firstPageToDisplay > 1)
+                    listItemLinks.Add(Ellipses(pagerOptions));
+
+                foreach (var i in Enumerable.Range(firstPageToDisplay, pageNumbersToDisplay))
+                {
+                    //show delimiter between page numbers
+                    if (i > firstPageToDisplay && !string.IsNullOrWhiteSpace(pagerOptions.TextForDelimiter))
+                        listItemLinks.Add(AddToListItem(pagerOptions.TextForDelimiter, pagerOptions.ClassToLi));
+
+                    //show page number link
+                    listItemLinks.Add(Page(i, pager, generatePageUrl, pagerOptions));
+                }
+
+                if (pagerOptions.HasEllipses && (firstPageToDisplay + pageNumbersToDisplay - 1) < pager.TotalPageCount)
+                    listItemLinks.Add(Ellipses(pagerOptions));
+            }
+
             listItemLinks.Add(Next(pager, generatePageUrl, pagerOptions));
+
+            listItemLinks.Add(Last(pager, generatePageUrl, pagerOptions));
 
             var listItemLinksString = listItemLinks.Aggregate(new StringBuilder(), (sb, listItem) => sb.Append(TagBuilderToString(listItem)), sb => sb.ToString());
 
             var ul = new TagBuilder("ul");
             AppendHtml(ul, listItemLinksString);
-            ul.AddCssClass(pagerOptions.UlElementClass);
+            ul.AddCssClass(pagerOptions.ClassToUl);
             var outerDiv = new TagBuilder("div");
-            outerDiv.AddCssClass(pagerOptions.ContainerDivClass);
+            outerDiv.AddCssClass(pagerOptions.ClassToPagerContainer);
             AppendHtml(outerDiv, TagBuilderToString(ul));
             return new HtmlString(TagBuilderToString(outerDiv));
-        }
-
-        private static HtmlString MaximalPager(IHtmlHelper html, IPager pager, Func<int, string> generatePageUrl, PagerOptions pagerOptions)
-        {
-            throw new NotImplementedException();
         }
 
         private static TagBuilder First(IPager pager, Func<int, string> generatePageUrl, PagerOptions pagerOptions)
         {
             const int targetPageNumber = 1;
             var first = new TagBuilder("a");
-            AppendHtml(first, string.Format(pagerOptions.LinkToFirstPageFormat, targetPageNumber));
+            AppendHtml(first, string.Format(pagerOptions.TextToFirstPage, targetPageNumber));
 
             first.AddCssClass(pagerOptions.PageClass);
 
             if (pager.IsFirstPage)
-                return AddToListItem(first, pagerOptions, pagerOptions.LiElementClass + " disabled");
+                return AddToListItem(first, pagerOptions, pagerOptions.ClassToLi + " disabled");
 
             first.Attributes["href"] = generatePageUrl(targetPageNumber);
-            return AddToListItem(first, pagerOptions, pagerOptions.LiElementClass);
+            return AddToListItem(first, pagerOptions, pagerOptions.ClassToLi);
         }
 
         private static TagBuilder Previous(IPager pager, Func<int, string> generatePageUrl, PagerOptions pagerOptions)
         {
             var targetPageNumber = pager.CurrentPageIndex - 1;
             var previous = new TagBuilder("a");
-            AppendHtml(previous, string.Format(pagerOptions.LinkToPreviousPageFormat, targetPageNumber));
+            AppendHtml(previous, string.Format(pagerOptions.TextToPreviousPage, targetPageNumber));
             previous.Attributes["rel"] = "prev";
             previous.AddCssClass(pagerOptions.PageClass);
 
             if (!pager.HasPreviousPage)
-                return AddToListItem(previous, pagerOptions, pagerOptions.LiElementClass + " disabled");
+                return AddToListItem(previous, pagerOptions, pagerOptions.ClassToLi + " disabled");
 
             previous.Attributes["href"] = generatePageUrl(targetPageNumber);
-            return AddToListItem(previous, pagerOptions, pagerOptions.LiElementClass);
+            return AddToListItem(previous, pagerOptions, pagerOptions.ClassToLi);
+        }
+
+        private static TagBuilder Page(int i, IPager pager, Func<int, string> generatePageUrl, PagerOptions pagerOptions)
+        {
+            var format = string.Format(pagerOptions.TextToIndividualPages, i);
+            var targetPageNumber = i;
+            var page = new TagBuilder("a");
+            SetInnerText(page, format);
+            page.AddCssClass(pagerOptions.PageClass);
+            if (i == pager.CurrentPageIndex)
+                return AddToListItem(page, pagerOptions, pagerOptions.ClassToLi + " " + pagerOptions.ClassToActiveLi);
+
+            page.Attributes["href"] = generatePageUrl(targetPageNumber);
+            return AddToListItem(page, pagerOptions, null);
         }
 
         private static TagBuilder Next(IPager pager, Func<int, string> generatePageUrl, PagerOptions pagerOptions)
         {
             var targetPageNumber = pager.CurrentPageIndex + 1;
             var next = new TagBuilder("a");
-            AppendHtml(next, string.Format(pagerOptions.LinkToNextPageFormat, targetPageNumber));
+            AppendHtml(next, string.Format(pagerOptions.TextToNextPage, targetPageNumber));
             next.Attributes["rel"] = "next";
 
             next.AddCssClass(pagerOptions.PageClass);
 
             if (!pager.HasNextPage)
-                return AddToListItem(next, pagerOptions, pagerOptions.LiElementClass + " disabled");
+                return AddToListItem(next, pagerOptions, pagerOptions.ClassToLi + " disabled");
 
             next.Attributes["href"] = generatePageUrl(targetPageNumber);
-            return AddToListItem(next, pagerOptions, pagerOptions.LiElementClass);
+            return AddToListItem(next, pagerOptions, pagerOptions.ClassToLi);
         }
 
         private static TagBuilder Last(IPager pager, Func<int, string> generatePageUrl, PagerOptions pagerOptions)
         {
             var targetPageNumber = pager.TotalPageCount;
             var last = new TagBuilder("a");
-            AppendHtml(last, string.Format(pagerOptions.LinkToLastPageFormat, targetPageNumber));
+            AppendHtml(last, string.Format(pagerOptions.TextToLastPage, targetPageNumber));
 
             last.AddCssClass(pagerOptions.PageClass);
 
             if (pager.IsLastPage)
-                return AddToListItem(last, pagerOptions, pagerOptions.LiElementClass + " disabled");
+                return AddToListItem(last, pagerOptions, pagerOptions.ClassToLi + " disabled");
 
             last.Attributes["href"] = generatePageUrl(targetPageNumber);
-            return AddToListItem(last, pagerOptions, pagerOptions.LiElementClass);
+            return AddToListItem(last, pagerOptions, pagerOptions.ClassToLi);
         }
 
         private static TagBuilder PageCountAndCurrentPage(IPager pager, PagerOptions pagerOptions)
         {
             var text = new TagBuilder("a");
-            SetInnerText(text, string.Format(pagerOptions.PageCountAndCurrentPageFormat, pager.CurrentPageIndex, pager.TotalPageCount));
-            return AddToListItem(text, pagerOptions, pagerOptions.LiElementClass + " disabled");
+            text.AddCssClass(pagerOptions.PageClass);
+            SetInnerText(text, string.Format(pagerOptions.PagerTextFormat, pager.CurrentPageIndex, pager.TotalPageCount));
+            return AddToListItem(text, pagerOptions, pagerOptions.ClassToLi + " disabled");
         }
 
         private static TagBuilder DisplayEntriesText(IPager pager, PagerOptions pagerOptions)
         {
             var text = new TagBuilder("a");
+            text.AddCssClass(pagerOptions.PageClass);
             SetInnerText(text, string.Format(pagerOptions.EntriesTextFormat, pager.StartItemIndex, pager.EndItemIndex, pager.TotalItemCount));
-            return AddToListItem(text, pagerOptions, pagerOptions.LiElementClass + " disabled");
+            return AddToListItem(text, pagerOptions, pagerOptions.ClassToLi + " disabled");
         }
 
+        private static TagBuilder Ellipses(PagerOptions pagerOptions)
+        {
+            var a = new TagBuilder("a");
+            a.AddCssClass(pagerOptions.PageClass);
+            AppendHtml(a, pagerOptions.EllipsesFormat);
+            return AddToListItem(a, pagerOptions, pagerOptions.ClassToLi + " disabled");
+        }
 
         private static void AppendHtml(TagBuilder tagBuilder, string innerHtml)
         {
@@ -144,10 +195,18 @@ namespace P.Pager.Mvc.Core
             tagBuilder.InnerHtml.SetContent(innerText);
         }
 
+        private static TagBuilder AddToListItem(string text, string cssClass)
+        {
+            var li = new TagBuilder("li");
+            li.AddCssClass(cssClass);
+            SetInnerText(li, text);
+            return li;
+        }
+
         private static TagBuilder AddToListItem(TagBuilder inner, PagerOptions pagerOptions, string cssClass)
         {
             var li = new TagBuilder("li");
-            li.AddCssClass(cssClass ?? pagerOptions.LiElementClass);
+            li.AddCssClass(cssClass ?? pagerOptions.ClassToLi);
             AppendHtml(li, TagBuilderToString(inner));
             return li;
         }

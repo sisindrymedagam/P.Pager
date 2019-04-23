@@ -2,30 +2,30 @@
 @using P.Pager
 @model IEnumerable<P.Pager.Mvc.Core.Example.Models.Member>
 
-@{
+    @{
     ViewData["Title"] = "Index";
-}
+    }
 
-<h2>Index</h2>
+    <h2>Index</h2>
 
-<table class="table">
-    <thead>
-        <tr>
-            <th>
-                @Html.DisplayNameFor(model => model.Id)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Name)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Company)
-            </th>
-            <th></th>
-        </tr>
-    </thead>
-    <tbody>
-        @foreach (var item in Model)
-        {
+    <table class="table">
+        <thead>
+            <tr>
+                <th>
+                    @Html.DisplayNameFor(model => model.Id)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Name)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Company)
+                </th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
             <tr>
                 <td>
                     @Html.DisplayFor(modelItem => item.Id)
@@ -42,9 +42,11 @@
                     @Html.ActionLink("Delete", "Delete", new { /* id=item.PrimaryKey */ })
                 </td>
             </tr>
-        }
-    </tbody>
+            }
+        </tbody>
 
-</table>
+    </table>
 
-@Html.Pager((IPager)Model, page => Url.Action("Index", new { page }), new PagerOptions { DisplayPageCountAndCurrentPage = true, DisplayEntriesText = true })
+    @Html.Pager((IPager)Model, page => Url.Action("Index", new { page }), new PagerOptions { HasPagerText = true, HasEntriesText = true, EntriesTextFormat = "Displaying {0} to {1} of {2} items.", PagerTextFormat = "Showing {0} of {1} pages.", ClassToUl = "pagination justify-content-center", TextToPreviousPage = "<< Previous Page", TextToNextPage = "Next Page >>", PageClass = "page-link page-link" })
+
+    @Html.Pager((IPager)Model, page => Url.Action("Index", new { page }), new PagerOptions { TextToIndividualPages = "page {0}", TextForDelimiter="|" })

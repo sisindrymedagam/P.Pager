@@ -17,7 +17,7 @@ namespace P.Pager.Mvc.Core.Example.Controllers
         }
         public IActionResult Index(int page = 1)
         {
-            var pager = _data.GetMembers().ToPagedList(page, 10);
+            var pager = _data.GetMembers().ToPagedList(page, 7);
             return View(pager);
         }
 
