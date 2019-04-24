@@ -120,7 +120,7 @@
         public bool HasPagerText { get; set; }
 
         /// <summary>
-        /// Text format will display if HasPagerText is true. Use {0} to refer the current page and {0} to refer total number of pages, by default it is set to Page {0} of {1}.
+        /// Text format will display if HasPagerText is true. Use {0} to refer the current page and {1} to refer total number of pages, by default it is set to Page {0} of {1}.
         /// </summary>
         /// <example>
         /// Page 10 of 20.
