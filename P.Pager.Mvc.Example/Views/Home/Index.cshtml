@@ -11,7 +11,7 @@
 <table class="table">
     <tr>
         <th>
-            @Html.DisplayNameFor(model=>model.Id)
+            @Html.DisplayNameFor(model => model.Id)
         </th>
         <th>
             @Html.DisplayNameFor(model => model.Name)
@@ -26,7 +26,7 @@
     {
         <tr>
             <td>
-                @Html.DisplayFor(modelItem=>item.Id)
+                @Html.DisplayFor(modelItem => item.Id)
             </td>
             <td>
                 @Html.DisplayFor(modelItem => item.Name)
@@ -42,5 +42,7 @@
         </tr>
     }
 
-</table>
+</table>@Html.Pager((IPager)Model, page => Url.Action("Index", new { page }))
 @Html.Pager((IPager)Model, page => Url.Action("Index", new { page }), new PagerOptions { TextToIndividualPages = "page {0}" })
+@Html.Pager((IPager)Model, page => Url.Action("Index", new { page }), new PagerOptions { HasPagerText = true, HasEntriesText = true })
+@Html.Pager((IPager)Model, page => Url.Action("Index", new { page }), new PagerOptions { PagesToDisplay = 7, EntriesTextFormat = "Displaying {0} to {1} of {2} items.", PagerTextFormat = "Showing {0} of {1} pages.", ClassToUl = "pagination justify-content-center", TextToPreviousPage = "<< Previous Page", TextToNextPage = "Next Page >>", PageClass = "page-link page-link" })

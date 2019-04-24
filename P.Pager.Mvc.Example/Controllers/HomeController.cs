@@ -13,7 +13,7 @@ namespace P.Pager.Mvc.Example.Controllers
 
         public ActionResult Index(int page = 1)
         {
-            var pager = _data.GetMembers().ToPagerList(page, 7);
+            var pager = _data.GetMembers().ToPagerList(page, 2);
             return View(pager);
         }
 

@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-
-namespace P.Pager.Mvc.Core
+﻿namespace P.Pager.Mvc.Core
 {
     public class PagerOptions
     {
