@@ -52,6 +52,9 @@
     <Reference Include="P.Pager, Version=1.2.0.0, Culture=neutral, PublicKeyToken=cb3a1e9a5c8488ed, processorArchitecture=MSIL">
       <HintPath>..\packages\P.Pager.1.2.0\lib\net45\P.Pager.dll</HintPath>
     </Reference>
+    <Reference Include="P.Pager.Mvc, Version=1.2.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\P.Pager.Mvc.1.2.0\lib\net452\P.Pager.Mvc.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Data" />
     <Reference Include="System.Data.DataSetExtensions" />
@@ -217,12 +220,6 @@
   </ItemGroup>
   <ItemGroup>
     <Service Include="{4A0DDDB5-7A95-4FBF-97CC-616D07737A77}" />
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\P.Pager.Mvc\P.Pager.Mvc.csproj">
-      <Project>{74eed4ca-8d72-447d-b568-ac8113805b88}</Project>
-      <Name>P.Pager.Mvc</Name>
-    </ProjectReference>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
