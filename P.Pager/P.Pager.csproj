@@ -20,7 +20,6 @@
     <AssemblyVersion>1.2.0.0</AssemblyVersion>
     <FileVersion>1.2.0.0</FileVersion>
     <Copyright>Copyright Sisindry Medagam, PuffinWeb © 2019</Copyright>
-    <AssemblyOriginatorKeyFile>p_pager.pfx</AssemblyOriginatorKeyFile>
     <PackageReleaseNotes>Initial release for .Net Pagination. Supporting .Net Framework and .Net Core</PackageReleaseNotes>
   </PropertyGroup>
 
