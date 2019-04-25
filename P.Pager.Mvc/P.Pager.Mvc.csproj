@@ -14,13 +14,14 @@
     <RepositoryType>git</RepositoryType>
     <PackageTags>Paged list, paging in .net core, asp.net pagedlist, paging in .net, paging in mvc, MvcPager, MvcPagedList, PaginationInMvc, MvcPagination</PackageTags>
     <NeutralLanguage />
-    <SignAssembly>false</SignAssembly>
+    <SignAssembly>true</SignAssembly>
     <PackageRequireLicenseAcceptance>false</PackageRequireLicenseAcceptance>
     <Version>1.2</Version>
     <AssemblyVersion>1.2.0.0</AssemblyVersion>
     <FileVersion>1.2.0.0</FileVersion>
     <Copyright>Copyright Sisindry Medagam, PuffinWeb © 2019</Copyright>
     <PackageReleaseNotes>Initial Release of Pagination mechanism for .Net MVC Web Applications.</PackageReleaseNotes>
+    <AssemblyOriginatorKeyFile>p.pager.mvc.snk</AssemblyOriginatorKeyFile>
   </PropertyGroup>
 
   <ItemGroup>
