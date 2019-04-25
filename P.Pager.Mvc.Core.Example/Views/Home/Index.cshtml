@@ -47,14 +47,20 @@
 <h6>Default Pager Control</h6>
 @Html.Pager((IPager)Model, page => Url.Action("Index", new { page }))
 
+<h6>Pager Controls <small>(always shows Previous/Next links, but sometimes they are disabled)</small></h6>
+@Html.Pager((IPager)Model, page => Url.Action("Index", new { page }), new PagerOptions { DisplayFirstPage = PagerDisplayMode.Never, DisplayLastPage = PagerDisplayMode.Never, DisplayNextPage = PagerDisplayMode.Always, DisplayPreviousPage = PagerDisplayMode.Always })
+
+<h6>Pager Controls <small>(always shows First/Last and Previous/Next links, but sometimes they are disabled)</small></h6>
+@Html.Pager((IPager)Model, page => Url.Action("Index", new { page }), new PagerOptions { DisplayFirstPage = PagerDisplayMode.Always, DisplayLastPage = PagerDisplayMode.Always, DisplayNextPage = PagerDisplayMode.Always, DisplayPreviousPage = PagerDisplayMode.Always })
+
 <h6>Minimal Pager</h6>
-@Html.Pager((IPager)Model, page => Url.Action("Index", new { page }), new PagerOptions { HasIndividualPages = false })
+@Html.Pager((IPager)Model, page => Url.Action("Index", new { page }), PrePagerOptions.Minimal)
 
-<h6>Minimal Pager with Custom Pager Text (Page Count Text) <small>Default <i>Page 1 of 30</i>(<i>Telugu Translation Example.</i>)</small></h6>
-@Html.Pager((IPager)Model, page => Url.Action("Index", new { page }), new PagerOptions { HasIndividualPages = false, HasPagerText = true, PagerTextFormat = "{1} లో {0} వ  పేజీ " })
+<h6>Minimal Pager with Pager Text (Page Count Text)</h6>
+@Html.Pager((IPager)Model, page => Url.Action("Index", new { page }), PrePagerOptions.MinimalWithPagerText)
 
-<h6>Minimal Pager with custom entries text (Item Count Text) <small>Default <i>Showing from 1 to 2 of 106 entries.</i>(<i>Telugu Translation Example.</i>)</small></h6>
-@Html.Pager((IPager)Model, page => Url.Action("Index", new { page }), new PagerOptions { HasIndividualPages = false, HasEntriesText = true, EntriesTextFormat = "{2} ఎంట్రీలలో {0} నుండి {1} వరకు చూపుతోంది." })
+<h6>Minimal Pager with entries text (Item Count Text)</h6>
+@Html.Pager((IPager)Model, page => Url.Action("Index", new { page }), PrePagerOptions.MinimalWithEntriesText)
 
 <h6>Shows custom page numbers, let say 10 pages.</h6>
 @Html.Pager((IPager)Model, page => Url.Action("Index", new { page }), new PagerOptions { PagesToDisplay = 10 })

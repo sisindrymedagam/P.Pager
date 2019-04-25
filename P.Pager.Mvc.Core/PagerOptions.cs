@@ -7,6 +7,10 @@
         /// </summary>
         public PagerOptions()
         {
+            DisplayFirstPage = PagerDisplayMode.IfNeeded;
+            DisplayLastPage = PagerDisplayMode.IfNeeded;
+            DisplayPreviousPage = PagerDisplayMode.IfNeeded;
+            DisplayNextPage = PagerDisplayMode.IfNeeded;
             PagesToDisplay = 5;
             HasIndividualPages = true;
             TextToIndividualPages = "{0}";
@@ -27,6 +31,26 @@
             HasEntriesText = false;
             EntriesTextFormat = "Showing {0} to {1} of {2} entries.";
         }
+
+        /// <summary>
+        /// If set to Always, render a hyperlink to the first page in the list. If set to IfNeeded, render the hyperlink only when the first page isn't visible in the paging control.
+        /// </summary>
+        public PagerDisplayMode DisplayFirstPage { get; set; }
+
+        /// <summary>
+        /// If set to Always, render a hyperlink to the last page in the list. If set to IfNeeded, render the hyperlink only when the last page isn't visible in the paging control.
+        /// </summary>
+        public PagerDisplayMode DisplayLastPage { get; set; }
+
+        /// <summary>
+        /// If set to Always, render a hyperlink to the previous page of the list. If set to IfNeeded, render the hyperlink only when there is a previous page in the list.
+        /// </summary>
+        public PagerDisplayMode DisplayPreviousPage { get; set; }
+
+        /// <summary>
+        /// If set to Always, render a hyperlink to the next page of the list. If set to IfNeeded, render the hyperlink only when there is a next page in the list.
+        /// </summary>
+        public PagerDisplayMode DisplayNextPage { get; set; }
 
         /// <summary>
         /// How many page numbers to display in pagination, by default it is 5.
@@ -143,5 +167,68 @@
         /// </example>
         public string EntriesTextFormat { get; set; }
 
+    }
+
+    public class PrePagerOptions
+    {
+        ///<summary>
+        /// Shows only the Previous and Next links.
+        ///</summary>
+        public static PagerOptions Minimal => new PagerOptions
+        {
+            DisplayFirstPage = PagerDisplayMode.Never,
+            DisplayLastPage = PagerDisplayMode.Never,
+            DisplayPreviousPage = PagerDisplayMode.Always,
+            DisplayNextPage = PagerDisplayMode.Always,
+            HasIndividualPages = false
+        };
+
+        ///<summary>
+        /// Shows Previous and Next links along with current page number and total number of pages in pager.
+        ///</summary>
+        public static PagerOptions MinimalWithPagerText => new PagerOptions
+        {
+            DisplayFirstPage = PagerDisplayMode.Never,
+            DisplayLastPage = PagerDisplayMode.Never,
+            DisplayPreviousPage = PagerDisplayMode.Always,
+            DisplayNextPage = PagerDisplayMode.Always,
+            HasIndividualPages = false,
+            HasPagerText = true
+        };
+
+
+        ///<summary>
+        /// Shows Previous and Next links along with index of start and last item and total entries in pager.
+        ///</summary>
+        public static PagerOptions MinimalWithEntriesText => new PagerOptions
+        {
+            DisplayFirstPage = PagerDisplayMode.Never,
+            DisplayLastPage = PagerDisplayMode.Never,
+            DisplayPreviousPage = PagerDisplayMode.Always,
+            DisplayNextPage = PagerDisplayMode.Always,
+            HasIndividualPages = false,
+            HasEntriesText = true
+        };
+    }
+
+    /// <summary>
+    /// A tri-state enum that controls the visibility of portions of the PagerList paging control.
+    /// </summary>
+    public enum PagerDisplayMode
+    {
+        /// <summary>
+        /// Always render.
+        /// </summary>
+        Always,
+
+        /// <summary>
+        /// Never render.
+        /// </summary>
+        Never,
+
+        /// <summary>
+        /// Only render when there is data that makes sense to show (context sensitive).
+        /// </summary>
+        IfNeeded
     }
 }

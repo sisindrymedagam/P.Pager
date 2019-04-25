@@ -56,9 +56,11 @@ namespace P.Pager.Mvc.Core
 
             var listItemLinks = new List<TagBuilder>();
 
-            listItemLinks.Add(First(pager, generatePageUrl, pagerOptions));
+            if (pagerOptions.DisplayFirstPage == PagerDisplayMode.Always || (pagerOptions.DisplayFirstPage == PagerDisplayMode.IfNeeded && firstPageToDisplay > 1))
+                listItemLinks.Add(First(pager, generatePageUrl, pagerOptions));
 
-            listItemLinks.Add(Previous(pager, generatePageUrl, pagerOptions));
+            if (pagerOptions.DisplayPreviousPage == PagerDisplayMode.Always || (pagerOptions.DisplayPreviousPage == PagerDisplayMode.IfNeeded && !pager.IsFirstPage))
+                listItemLinks.Add(Previous(pager, generatePageUrl, pagerOptions));
 
             if (pagerOptions.HasPagerText)
                 listItemLinks.Add(PageCountAndCurrentPage(pager, pagerOptions));
@@ -85,9 +87,11 @@ namespace P.Pager.Mvc.Core
                     listItemLinks.Add(Ellipses(pagerOptions));
             }
 
-            listItemLinks.Add(Next(pager, generatePageUrl, pagerOptions));
+            if (pagerOptions.DisplayNextPage == PagerDisplayMode.Always || (pagerOptions.DisplayNextPage == PagerDisplayMode.IfNeeded && !pager.IsLastPage))
+                listItemLinks.Add(Next(pager, generatePageUrl, pagerOptions));
 
-            listItemLinks.Add(Last(pager, generatePageUrl, pagerOptions));
+            if (pagerOptions.DisplayLastPage == PagerDisplayMode.Always || (pagerOptions.DisplayLastPage == PagerDisplayMode.IfNeeded && lastPageToDisplay < pager.TotalPageCount))
+                listItemLinks.Add(Last(pager, generatePageUrl, pagerOptions));
 
             var listItemLinksString = listItemLinks.Aggregate(new StringBuilder(), (sb, listItem) => sb.Append(TagBuilderToString(listItem)), sb => sb.ToString());
 
