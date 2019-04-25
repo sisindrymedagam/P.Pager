@@ -8,7 +8,11 @@
     <PackageReference Include="Microsoft.AspNetCore.App" />
     <PackageReference Include="Microsoft.AspNetCore.Razor.Design" Version="2.1.2" PrivateAssets="All" />
     <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="2.1.9" />
-    <PackageReference Include="P.Pager.Mvc.Core" Version="1.2.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\P.Pager.Mvc.Core\P.Pager.Mvc.Core.csproj" />
+    <ProjectReference Include="..\P.Pager\P.Pager.csproj" />
   </ItemGroup>
 
 </Project>

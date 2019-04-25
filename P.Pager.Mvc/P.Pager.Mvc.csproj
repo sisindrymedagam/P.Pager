@@ -26,7 +26,10 @@
 
   <ItemGroup>
     <PackageReference Include="Microsoft.AspNet.Mvc" Version="5.2.7" />
-    <PackageReference Include="P.Pager" Version="1.2.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\P.Pager\P.Pager.csproj" />
   </ItemGroup>
 
   <ItemGroup>
