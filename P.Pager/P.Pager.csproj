@@ -5,7 +5,7 @@
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
     <Title>P.Pager</Title>
     <Company>PuffinWeb</Company>
-    <Authors>Copyright Sisindry Medagam, PuffinWeb © 2019</Authors>
+    <Authors>Sisindry Medagam</Authors>
     <Description>Lightweight package for easily paging through any IEnumerable/IQueryable in .NET and .NET Core.</Description>
     <PackageLicenseExpression>MIT</PackageLicenseExpression>
     <PackageIconUrl>https://raw.githubusercontent.com/PuffinWeb/P.Pager/master/icon.png</PackageIconUrl>
@@ -13,14 +13,15 @@
     <RepositoryUrl>https://github.com/PuffinWeb/P.Pager.git</RepositoryUrl>
     <RepositoryType>git</RepositoryType>
     <PackageTags>Paged list, paging in .net core, asp.net pagedlist, paging in .net, paging in mvc, MvcPager, MvcPagedList, PaginationInMvc, MvcPagination</PackageTags>
-    <NeutralLanguage />
+    <NeutralLanguage>en-IN</NeutralLanguage>
     <SignAssembly>true</SignAssembly>
     <PackageRequireLicenseAcceptance>false</PackageRequireLicenseAcceptance>
     <Version>1.4</Version>
     <AssemblyVersion>1.4.0.0</AssemblyVersion>
     <FileVersion>1.4.0.0</FileVersion>
     <Copyright>Copyright Sisindry Medagam, PuffinWeb © 2019</Copyright>
-    <PackageReleaseNotes>Supporting for Async</PackageReleaseNotes>
+    <PackageReleaseNotes>v1.4 - P.Pager now Support Async.
+v1.2 - Initial release for .Net Pagination. Supporting .Net Framework and .Net Core.</PackageReleaseNotes>
     <AssemblyOriginatorKeyFile>p.pager.snk</AssemblyOriginatorKeyFile>
   </PropertyGroup>
 

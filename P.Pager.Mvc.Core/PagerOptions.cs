@@ -209,6 +209,29 @@
             HasIndividualPages = false,
             HasEntriesText = true
         };
+
+        /// <summary>
+        /// Shows Previous and Next page always with default, 5 pages.
+        /// </summary>
+        public static PagerOptions ClassicPager => new PagerOptions
+        {
+            DisplayFirstPage = PagerDisplayMode.Never,
+            DisplayLastPage = PagerDisplayMode.Never,
+            DisplayPreviousPage = PagerDisplayMode.Always,
+            DisplayNextPage = PagerDisplayMode.Always
+        };
+
+        /// <summary>
+        /// Shows Last, First, Previous and Next page always with default, 5 pages. 
+        /// </summary>
+        public static PagerOptions ClassicPagerWithFirstAndLastPages => new PagerOptions
+        {
+            DisplayFirstPage = PagerDisplayMode.Always,
+            DisplayLastPage = PagerDisplayMode.Always,
+            DisplayPreviousPage = PagerDisplayMode.Always,
+            DisplayNextPage = PagerDisplayMode.Always
+        };
+
     }
 
     /// <summary>
