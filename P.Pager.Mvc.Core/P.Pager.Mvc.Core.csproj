@@ -20,8 +20,7 @@
     <AssemblyVersion>1.4.0.0</AssemblyVersion>
     <FileVersion>1.4.0.0</FileVersion>
     <Copyright>Copyright Sisindry Medagam, PuffinWeb © 2019</Copyright>
-    <PackageReleaseNotes>v1.4 - Added more options for first, last, next and previous paging.
-v1.2 - Initial Release of Pagination mechanism for .Net Core MVC Web Applications.</PackageReleaseNotes>
+    <PackageReleaseNotes>v1.4 - Added more options for first, last, next and previous paging.</PackageReleaseNotes>
     <AssemblyOriginatorKeyFile>p.pager.mvc.core.snk</AssemblyOriginatorKeyFile>
   </PropertyGroup>
 

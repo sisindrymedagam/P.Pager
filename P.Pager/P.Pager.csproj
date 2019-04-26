@@ -20,8 +20,7 @@
     <AssemblyVersion>1.4.0.0</AssemblyVersion>
     <FileVersion>1.4.0.0</FileVersion>
     <Copyright>Copyright Sisindry Medagam, PuffinWeb © 2019</Copyright>
-    <PackageReleaseNotes>v1.4 - P.Pager now Support Async.
-v1.2 - Initial release for .Net Pagination. Supporting .Net Framework and .Net Core.</PackageReleaseNotes>
+    <PackageReleaseNotes>v1.4 - P.Pager now Support Async.</PackageReleaseNotes>
     <AssemblyOriginatorKeyFile>p.pager.snk</AssemblyOriginatorKeyFile>
   </PropertyGroup>
 
