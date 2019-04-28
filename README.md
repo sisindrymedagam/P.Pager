@@ -81,7 +81,6 @@ Default options for rendering pagination.
 |PagerTextFormat|string|Text format will display if HasPagerText is true. Use {0} to refer the current page and {0} to refer total number of pages, by default it is set to Page {0} of {1}.|Page {0} of {1}.|
 |HasEntriesText|bool|Displaying start item, last item and total entries in pager, by default it is set to false.|false|
 |EntriesTextFormat|string|Text format will display if HasEntriesText is true. {0} refers first entry on page, {1} refers last item on page and {2} refers total number of entries, by default it is set to Showing {0} to {1} of {2} entries.|Showing {0} to {1} of {2} entries.|
-||||
 
 ### PagerDisplayMode
 A tri-state enum that controls the visibility of portions of the PagerList paging control.
@@ -93,7 +92,6 @@ public enum PagerDisplayMode
 |Always|Always render.|
 |Never|Never render.|
 |IfNeeded|Only render when there is data that makes sense to show (context sensitive).|
-|||
 
 ### How to use PagerOptions?
 1. Shows custom page numbers, let say 10 pages.
@@ -120,11 +118,12 @@ public enum PagerDisplayMode
 ```
 ![alt text](https://raw.githubusercontent.com/PuffinWeb/P.Pager/master/img/10.CustomOptions.PNG)
 
-5. Custom Icon Options (Fontawsome)
+5. Custom Icon Options (Fontawesome)
 ```csharp
 @Html.Pager((IPager)Model, page => Url.Action("Index", new { page }), new PagerOptions { TextToPreviousPage = "<i class='fas fa-step-backward'></i>", TextToNextPage = "<i class='fas fa-step-forward'></i>", TextToFirstPage = "<i class='fas fa-fast-backward'></i>", TextToLastPage = "<i class='fas fa-fast-forward'></i>" })
 ```
 ![alt text](https://raw.githubusercontent.com/PuffinWeb/P.Pager/master/img/11.Using%20Icons.PNG)
+
 ## PrePagerOptions
 1. Minimal Pager
 ```csharp
@@ -160,5 +159,6 @@ public enum PagerDisplayMode
 @Html.Pager((IPager)Model, page => Url.Action("Index", new { page }), PrePagerOptions.ClassicPagerWithFirstAndLastPages)
 ```
 ![alt text](https://raw.githubusercontent.com/PuffinWeb/P.Pager/master/img/6.classiclastfirst.PNG)
+
 ## License
 Licensed under the [MIT License](https://github.com/PuffinWeb/P.Pager/blob/master/LICENSE).
