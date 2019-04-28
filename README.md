@@ -49,6 +49,8 @@ public class HomeController : Controller
 //Default Pager options
 @Html.Pager((IPager)Model, page => Url.Action("Index", new { page }))
 ```
+![alt text](https://raw.githubusercontent.com/PuffinWeb/P.Pager/master/img/1.default.PNG)
+
 ## PagerOptions
 Default options for rendering pagination.
 
@@ -59,16 +61,22 @@ Default options for rendering pagination.
 //Shows only the Previous and Next links.
 @Html.Pager((IPager)Model, page => Url.Action("Index", new { page }), PrePagerOptions.Minimal)
 ```
+![alt text](https://raw.githubusercontent.com/PuffinWeb/P.Pager/master/img/2.%20minimal.PNG)
+
 2. Minimal Pager with Pager Text (Page Count Text)
 ```csharp
 //Shows Previous and Next links along with current page number and total number of pages in pager.
 @Html.Pager((IPager)Model, page => Url.Action("Index", new { page }), PrePagerOptions.MinimalWithPagerText)
 ```
+![alt text](https://raw.githubusercontent.com/PuffinWeb/P.Pager/master/img/3.minimalpagecount.PNG)
+
 3. Minimal Pager with entries text (Item Count Text)
 ```csharp
 //Shows Previous and Next links along with index of start and last item and total entries in pager.
 @Html.Pager((IPager)Model, page => Url.Action("Index", new { page }), PrePagerOptions.MinimalWithEntriesText)
 ```
+![alt text](https://raw.githubusercontent.com/PuffinWeb/P.Pager/master/img/4.minimalwithentries.PNG)
+
 4. Classic Pager <small>(always shows Previous/Next links, but sometimes they are disabled)</small>
 ```csharp
 //Shows Previous and Next page always with default, 5 pages.
