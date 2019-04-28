@@ -69,7 +69,7 @@
 @Html.Pager((IPager)Model, page => Url.Action("Index", new { page }), new PagerOptions { TextToIndividualPages = "Page-{0}" })
 
 <h6>Custom Wording. (<i>Can use for translation also.</i>)</h6>
-@Html.Pager((IPager)Model, page => Url.Action("Index", new { page }), new PagerOptions { TextToPreviousPage = "Previous Page", TextToNextPage = "Next Page", TextToFirstPage = "First Page", TextToLastPage = "Next Page" })
+@Html.Pager((IPager)Model, page => Url.Action("Index", new { page }), new PagerOptions { TextToPreviousPage = "Previous Page", TextToNextPage = "Next Page", TextToFirstPage = "First Page", TextToLastPage = "Last Page" })
 
 <h6>Custom options.</h6>
 @Html.Pager((IPager)Model, page => Url.Action("Index", new { page }), new PagerOptions { TextToPreviousPage = "last-page", TextToNextPage = "next-page", TextToFirstPage = "first-page", TextToLastPage = "last-page", ClassToUl = "list-inline", ClassToLi = "list-inline-item", PageClass = "nopageclass", ClassToActiveLi = "niloclass", TextForDelimiter = " | " })
