@@ -11,8 +11,8 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\P.Pager.Mvc.Core\P.Pager.Mvc.Core.csproj" />
-    <ProjectReference Include="..\P.Pager\P.Pager.csproj" />
+    <ProjectReference Include="..\..\src\P.Pager.Mvc.Core\P.Pager.Mvc.Core.csproj" />
+    <ProjectReference Include="..\..\src\P.Pager\P.Pager.csproj" />
   </ItemGroup>
 
 </Project>
