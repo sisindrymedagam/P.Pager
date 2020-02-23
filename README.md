@@ -1,11 +1,5 @@
 # <p align="center"> <img src="https://raw.githubusercontent.com/PuffinWeb/P.Pager/master/icon.png" width="25" height="25" title="Github Logo"> P.Pager</p>
 
-## Build Status
-
-[![Build Status](https://dev.azure.com/PuffinWeb/P.Pager/_apis/build/status/PuffinWeb.P.Pager?branchName=master)](https://dev.azure.com/PuffinWeb/P.Pager/_build/latest?definitionId=3&branchName=master)
-[![Build status](https://ci.appveyor.com/api/projects/status/3hu5tk5w0ek0k1na?svg=true)](https://ci.appveyor.com/project/sisindrymedagam/p-pager)
-[![Build Status](https://travis-ci.org/PuffinWeb/P.Pager.svg?branch=master)](https://travis-ci.org/PuffinWeb/P.Pager)
-
 ## What is this?
 P.Pager is Lightweight package for easily paging through any IEnumerable/IQueryable, chop it up into "pages", and grab a specific "page" by an index. It supports Web projects, Winforms, WPF, Window Phone, Silverlight and other .NET projects. It is default configured to **> Bootstrap 3.3.1**.
 
