@@ -16,13 +16,14 @@
     <NeutralLanguage>en-IN</NeutralLanguage>
     <SignAssembly>true</SignAssembly>
     <PackageRequireLicenseAcceptance>false</PackageRequireLicenseAcceptance>
-    <Version>1.4</Version>
-    <AssemblyVersion>1.4.0.0</AssemblyVersion>
-    <FileVersion>1.4.0.0</FileVersion>
+    <Version>3.0</Version>
+    <AssemblyVersion>3.0.0.0</AssemblyVersion>
+    <FileVersion>3.0.0.0</FileVersion>
     <Copyright>Copyright Sisindry Medagam, PuffinWeb © 2020</Copyright>
-    <PackageReleaseNotes>v1.4 - P.Pager now Support Async.</PackageReleaseNotes>
+    <PackageReleaseNotes>v3.0 - P.Pager now Support .Net Core 3 above.</PackageReleaseNotes>
     <AssemblyOriginatorKeyFile>p.pager.snk</AssemblyOriginatorKeyFile>
-  </PropertyGroup>
+  
+</PropertyGroup>
 
   <ItemGroup>
     <PackageReference Include="System.Linq.Expressions" Version="4.3.0" />

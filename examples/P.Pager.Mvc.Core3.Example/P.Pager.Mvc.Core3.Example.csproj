@@ -8,6 +8,4 @@
     <ProjectReference Include="..\src\P.Pager.Mvc.Core\P.Pager.Mvc.Core.csproj" />
   </ItemGroup>
 
-
-
 </Project>
