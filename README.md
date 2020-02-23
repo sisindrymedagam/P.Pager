@@ -14,12 +14,18 @@ P.Pager is Lightweight package for easily paging through any IEnumerable/IQuerya
 #### .Net Framework ( > 4.5.2)
 Install [P.Pager.Mvc](https://www.nuget.org/packages/P.Pager.Mvc/) via [NuGet](http://nuget.org). This will install [P.Pager](https://www.nuget.org/packages/P.Pager/) automatically.
 ```
-Install-Package P.Pager.Mvc -Version 1.4.0
+Install-Package P.Pager.Mvc -Version 3.0.0
 ```
 #### .Net Core (.NET Standard 2.0)
 Install [P.Pager.Mvc.Core](https://www.nuget.org/packages/P.Pager.Mvc.Core/) via [NuGet](http://nuget.org). This will install [P.Pager](https://www.nuget.org/packages/P.Pager/) automatically.
 ```
 Install-Package P.Pager.Mvc.Core -Version 1.4.0
+```
+
+#### .Net Core 3 and above (.NET Standard 2.1)
+Install [P.Pager.Mvc.Core](https://www.nuget.org/packages/P.Pager.Mvc.Core/) via [NuGet](http://nuget.org). This will install [P.Pager](https://www.nuget.org/packages/P.Pager/) automatically.
+```
+Install-Package P.Pager.Mvc.Core -Version 3.0.0
 ```
 
 ### After that
