@@ -1,0 +1,78 @@
+﻿@using P.Pager.Mvc.Core
+@using P.Pager
+@model IEnumerable<P.Pager.Mvc.Core3.Example.Models.Member>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h2>Index</h2>
+
+<table class="table table-bordered">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Id)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Name)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Company)
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Id)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Name)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Company)
+                </td>
+            </tr>
+        }
+    </tbody>
+
+</table>
+
+@*@Html.Pager((IPager)Model, page => Url.Action("Index", new { page }), new PagerOptions { PagesToDisplay = 7, EntriesTextFormat = "Displaying {0} to {1} of {2} items.", PagerTextFormat = "Showing {0} of {1} pages.", ClassToUl = "pagination justify-content-center", TextToPreviousPage = "<< Previous Page", TextToNextPage = "Next Page >>", PageClass = "page-link page-link" })*@
+
+<h3>Pager Configurations</h3>
+<h6>Default Pager Control</h6>
+@Html.Pager((IPager)Model, page => Url.Action("Index", new { page }))
+
+<h6>Minimal Pager</h6>
+@Html.Pager((IPager)Model, page => Url.Action("Index", new { page }), PrePagerOptions.Minimal)
+
+<h6>Minimal Pager with Pager Text (Page Count Text)</h6>
+@Html.Pager((IPager)Model, page => Url.Action("Index", new { page }), PrePagerOptions.MinimalWithPagerText)
+
+<h6>Minimal Pager with entries text (Item Count Text)</h6>
+@Html.Pager((IPager)Model, page => Url.Action("Index", new { page }), PrePagerOptions.MinimalWithEntriesText)
+
+<h6>Classic Pager <small>(always shows Previous/Next links, but sometimes they are disabled)</small></h6>
+@Html.Pager((IPager)Model, page => Url.Action("Index", new { page }), PrePagerOptions.ClassicPager)
+
+<h6>Classic Pager <small>(Classic Pager with First and Last links, but sometimes they are disabled)</small></h6>
+@Html.Pager((IPager)Model, page => Url.Action("Index", new { page }), PrePagerOptions.ClassicPagerWithFirstAndLastPages)
+
+<h6>Shows custom page numbers, let say 10 pages.</h6>
+@Html.Pager((IPager)Model, page => Url.Action("Index", new { page }), new PagerOptions { PagesToDisplay = 10 })
+
+<h6>With Custom Page numbers</h6>
+@Html.Pager((IPager)Model, page => Url.Action("Index", new { page }), new PagerOptions { TextToIndividualPages = "Page-{0}" })
+
+<h6>Custom Wording. (<i>Can use for translation also.</i>)</h6>
+@Html.Pager((IPager)Model, page => Url.Action("Index", new { page }), new PagerOptions { TextToPreviousPage = "Previous Page", TextToNextPage = "Next Page", TextToFirstPage = "First Page", TextToLastPage = "Last Page" })
+
+<h6>Custom options.</h6>
+@Html.Pager((IPager)Model, page => Url.Action("Index", new { page }), new PagerOptions { TextToPreviousPage = "last-page", TextToNextPage = "next-page", TextToFirstPage = "first-page", TextToLastPage = "last-page", ClassToUl = "list-inline", ClassToLi = "list-inline-item", PageClass = "nopageclass", ClassToActiveLi = "niloclass", TextForDelimiter = " | " })
+
+<h6>Custom Icon Options (Fontawsome 5.8.1)</h6>
+@Html.Pager((IPager)Model, page => Url.Action("Index", new { page }), new PagerOptions { TextToPreviousPage = "<i class='fas fa-step-backward'></i>", TextToNextPage = "<i class='fas fa-step-forward'></i>", TextToFirstPage = "<i class='fas fa-fast-backward'></i>", TextToLastPage = "<i class='fas fa-fast-forward'></i>" })

@@ -1,7 +1,7 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-    <TargetFramework>netstandard2.0</TargetFramework>
+    <TargetFrameworks>netstandard2.0;netstandard2.1</TargetFrameworks>
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
     <Title>P.Pager.Mvc.Core</Title>
     <Company>PuffinWeb</Company>
@@ -19,14 +19,14 @@
     <Version>1.4</Version>
     <AssemblyVersion>1.4.0.0</AssemblyVersion>
     <FileVersion>1.4.0.0</FileVersion>
-    <Copyright>Copyright Sisindry Medagam, PuffinWeb © 2019</Copyright>
+    <Copyright>Copyright Sisindry Medagam, PuffinWeb © 2020</Copyright>
     <PackageReleaseNotes>v1.4 - Added more options for first, last, next and previous paging.</PackageReleaseNotes>
     <AssemblyOriginatorKeyFile>p.pager.mvc.core.snk</AssemblyOriginatorKeyFile>
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="Microsoft.AspNetCore.Mvc.Core" Version="2.1.2" />
-    <PackageReference Include="Microsoft.AspNetCore.Mvc.ViewFeatures" Version="2.1.2" />
+    <PackageReference Include="Microsoft.AspNetCore.Mvc.Core" Version="2.2.5" />
+    <PackageReference Include="Microsoft.AspNetCore.Mvc.ViewFeatures" Version="2.2.0" />
   </ItemGroup>
 
   <ItemGroup>
