@@ -63,7 +63,7 @@ Default options for rendering pagination.
 |DisplayPreviousPage|[PagerDisplayMode](#pagerdisplaymode)|If set to Always, render a hyperlink to the previous page of the list. If set to IfNeeded, render the hyperlink only when there is a previous page in the list.|IfNeeded|
 |DisplayNextPage|[PagerDisplayMode](#pagerdisplaymode)|If set to Always, render a hyperlink to the next page of the list. If set to IfNeeded, render the hyperlink only when there is a next page in the list.|IfNeeded|
 |PagesToDisplay|int?|How many page numbers to display in pagination, by default it is 5.|5|
-|HasIndividualPages|bool|Display pages numbers. Refer [PagesToDisplay]()|true|
+|HasIndividualPages|bool|Display pages numbers.|true|
 |TextToIndividualPages|string|A formatted text to show to show inside the hyperlink. Use {0} to refer page number, by default it is set to {0}|{0}|
 |TextForDelimiter|string|This will appear between each page number. If null or white space, no delimeter will display.|null|
 |HasEllipses|bool|Adds an ellipe when all page numbers are not displaying, by default it is true.|true|
